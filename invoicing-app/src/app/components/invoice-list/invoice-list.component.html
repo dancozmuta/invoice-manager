@@ -1,0 +1,15 @@
+<div class="invoice-list">
+  <div class="invoice-list-header">
+    <div class="title">
+      <h1>Invoices</h1>
+      <p>There are 7 total invoices.</p>
+    </div>
+    <div class="filter">
+      Filter by status 
+    </div>
+    <app-button icon="./assets/icon-plus.svg" text="New Invoice"></app-button>
+  </div>
+  <div class="invoice-item" *ngFor="let invoice of invoices">
+    <app-invoice [invoice]="invoice"></app-invoice> 
+  </div>
+</div>
