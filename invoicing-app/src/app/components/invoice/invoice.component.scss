@@ -2,5 +2,101 @@
   .invoice {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f213a;
+    margin: 15px 0;
+    padding: 10px 20px;
+    border-radius: 10px;
+
+    .invoice__client-details {
+      flex: 1;
+      display: flex;
+      margin: 0 4%;
+
+      .invoice__client-name {
+        width: 48%;
+        text-align: left;
+      }
+
+      .invoice__total {
+        width: 48%;
+        text-align: right;
+      }
+    }
+
+    .invoice__item {
+      flex: 1;
+      margin: 0 5px;
+
+      &.invoice__client-name {
+        text-align: left;
+      }
+
+      &.invoice__total {
+        text-align: right;
+      }
+    }
+
+    .invoice__status {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 110px;
+      height: 40px;
+      border-radius: 5px;
+
+      &.pending {
+        color: rgb(255 142 1 / 1);
+        background-color: rgb(255 142 1 / 5%);
+
+        .invoice__status__dot {
+          background-color: rgb(255 142 1 / 1);
+        }
+      }
+
+      &.paid {
+        color: rgb(51 214 159 / 1);
+        background-color: rgb(51 214 159 / 5%);
+
+        .invoice__status__dot {
+          background-color: rgb(51 214 159 / 1);
+        }
+      }
+
+      &.draft {
+        color: rgb(255 255 255 / 1);
+        background-color: rgb(255 255 255 / 5%);
+
+        .invoice__status__dot {
+          background-color: rgb(255 255 255 / 1);
+        }
+      }
+
+      .invoice__status__dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        margin-right: 5px;
+        margin-top: 3px;
+      }
+    }
+
+    .invoice__id {
+      width: 60px;
+      text-align: center;
+      margin: 0 5px;
+    }
+
+    .invoice__due-date {
+      width: 120px;
+      text-align: center;
+      margin: 0 5px;
+    }
+
+    .invoice__icon {
+      padding-left: 20px;
+    }
   }
 }

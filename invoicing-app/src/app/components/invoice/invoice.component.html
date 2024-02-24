@@ -1,7 +1,17 @@
 <div class="invoice">
-  <p>{{ invoice.id }}</p>
-  <p>{{ invoice.paymentDue }}</p>
-  <p>{{ invoice.clientName }}</p>
-  <p>{{ invoice.total }}</p>
-  <p>{{ invoice.status }}</p>
+  <p class="invoice__id">{{ invoice.id }}</p>
+  <p class="invoice__due-date">Due {{ invoice.paymentDue }}</p>
+  <div class="invoice__client-details">
+    <p class="invoice__client-details__item invoice__client-name">
+      {{ invoice.clientName }}
+    </p>
+    <p class="invoice__client-details__item invoice__total">
+      £ {{ invoice.total }}
+    </p>
+  </div>
+  <div class="invoice__status {{ invoice.status }}">
+    <div class="invoice__status__dot"></div>
+    <span>{{ invoice.status }}</span>
+  </div>
+  <img class="invoice__icon" src="assets/icon-arrow-right.svg" alt="Icon" />
 </div>

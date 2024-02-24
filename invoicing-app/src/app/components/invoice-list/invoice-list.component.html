@@ -1,15 +1,23 @@
-<div class="invoice-list">
-  <div class="invoice-list-header">
-    <div class="title">
-      <h1>Invoices</h1>
-      <p>There are 7 total invoices.</p>
-    </div>
+<div class="invoice-list__header">
+  <div class="title">
+    <h1 class="title__main">Invoices</h1>
+    <p class="title__info">There are {{ invoices.length }} total invoices.</p>
+  </div>
+  <div class="controls">
     <div class="filter">
-      Filter by status 
+      <span class="filter__label">Filter by status</span>
+      <img class="filter__icon" src="assets/icon-arrow-down.svg" alt="Icon" />
     </div>
-    <app-button icon="./assets/icon-plus.svg" text="New Invoice"></app-button>
+    <app-button
+      icon="./assets/icon-plus.svg"
+      text="New Invoice"
+      class="controls__button"
+    ></app-button>
   </div>
-  <div class="invoice-item" *ngFor="let invoice of invoices">
-    <app-invoice [invoice]="invoice"></app-invoice> 
-  </div>
+</div>
+<div class="invoice-list" *ngFor="let invoice of invoices">
+  <app-invoice
+    [invoice]="invoice"
+    class="invoice-list__item-content"
+  ></app-invoice>
 </div>
