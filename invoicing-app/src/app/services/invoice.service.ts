@@ -7,6 +7,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
   providedIn: 'root'
 })
 export class InvoiceService {
+  private URL = 'assets/data.json';
 
   private invoicesSubject: BehaviorSubject<Invoice[]> = new BehaviorSubject<Invoice[]>([]);
   invoices$: Observable<Invoice[]> = this.invoicesSubject.asObservable();
@@ -16,10 +17,9 @@ export class InvoiceService {
   }
 
   private loadInvoices(): void {
-    // Fetch invoices from data.json using HttpClient
-    this.http.get<Invoice[]>('assets/data.json').subscribe({
+    // Fetch invoices from data.json 
+    this.http.get<Invoice[]>(this.URL).subscribe({
       next: (invoices) => {
-        // Update the BehaviorSubject with the fetched data
         this.invoicesSubject.next(invoices);
       },
       error: (error) => {

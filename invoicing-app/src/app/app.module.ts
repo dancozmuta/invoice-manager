@@ -8,6 +8,7 @@ import { InvoiceItemComponent } from './components/invoice-item/invoice-item.com
 import { InvoiceComponent } from './components/invoice/invoice.component';
 import { InvoiceListComponent } from "./components/invoice-list/invoice-list.component";
 import { ButtonComponent } from "./components/button/button.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { ButtonComponent } from "./components/button/button.component";
     imports: [
         BrowserModule,
         AppRoutingModule,
+        HttpClientModule 
     ]
 })
 export class AppModule { }
