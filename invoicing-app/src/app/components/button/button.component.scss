@@ -1,25 +1,35 @@
 :host {
+  &.button__new-invoice {
+    button {
+      background-color: var(--primary-color);
+      color: var(--text-color-dark);
+
+      &:hover {
+        background-color: var(--primary-color-dark);
+      }
+    }
+  }
+
   button {
+    border-radius: 25px;
     padding: 5px 10px 5px 5px;
-    background-color: #7c5df9;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border-radius: 25px;
-    color: #fff;
     font-size: 12px;
     font-weight: 600;
     border: none;
+    cursor: pointer;
 
     img {
       padding: 10px;
-      background-color: #fff;
+      background-color: var(--text-color-dark);
       border-radius: 50%;
     }
 
     span {
-     margin: 0 10px 0 15px;
+      margin: 0 10px 0 15px;
     }
   }
 }

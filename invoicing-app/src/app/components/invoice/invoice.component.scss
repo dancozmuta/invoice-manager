@@ -4,7 +4,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #1f213a;
+    background-color: var(--background-dark--element);
     margin: 15px 0;
     padding: 10px 20px;
     border-radius: 10px;
@@ -48,29 +48,29 @@
       border-radius: 5px;
 
       &.pending {
-        color: rgb(255 142 1 / 1);
-        background-color: rgb(255 142 1 / 5%);
+        color: var(--pending-color);
+        background-color: var(--pending-color--background);
 
         .invoice__status__dot {
-          background-color: rgb(255 142 1 / 1);
+          background-color: var(--pending-color);
         }
       }
 
       &.paid {
-        color: rgb(51 214 159 / 1);
-        background-color: rgb(51 214 159 / 5%);
+        color: var(--paid-color);
+        background-color: var(--pending-color--background);
 
         .invoice__status__dot {
-          background-color: rgb(51 214 159 / 1);
+          background-color: var(--paid-color);
         }
       }
 
       &.draft {
-        color: rgb(255 255 255 / 1);
-        background-color: rgb(255 255 255 / 5%);
+        color: var(--draft-color);
+        background-color: var(--draft-color--background);
 
         .invoice__status__dot {
-          background-color: rgb(255 255 255 / 1);
+          background-color: var(--draft-color);
         }
       }
 

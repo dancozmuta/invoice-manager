@@ -1,0 +1,14 @@
+:root {
+  --primary-color: #7c5df9;
+  --primary-color-dark: #5a40c4;
+  --background-dark: #141625;
+  --background-dark--element: #1f213a;
+  --text-color-dark: #fff;
+
+  --pending-color: rgb(255, 142, 1);
+  --pending-color--background: rgba(255, 142, 1, 0.05);
+  --draft-color: rgb(255, 255, 255);
+  --draft-color--background: rgba(255, 255, 255, 0.05);
+  --paid-color: rgb(51, 214, 159);
+  --paid-color--background: rgba(51, 214, 159, 0.05);
+}

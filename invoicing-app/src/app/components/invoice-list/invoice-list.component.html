@@ -11,7 +11,8 @@
     <app-button
       icon="./assets/icon-plus.svg"
       text="New Invoice"
-      class="controls__button"
+      class="button__new-invoice"
+      (click)="toggleOffCanvas()"
     ></app-button>
   </div>
 </div>
@@ -21,3 +22,7 @@
     class="invoice-list__item-content"
   ></app-invoice>
 </div>
+<div class="off-canvas" [class.show]="showOffCanvas">
+  <app-invoice-create></app-invoice-create>
+</div>
+<div class="overlay" [class.active]="showOffCanvas" (click)="toggleOffCanvas()"></div>

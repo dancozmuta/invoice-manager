@@ -1,16 +1,16 @@
 export interface Invoice {
   id: string;
-  createdAt: string;
-  paymentDue: string;
-  description: string;
-  paymentTerms: number;
-  clientName: string;
-  clientEmail: string;
-  status: 'draft' | 'pending' | 'paid';
-  senderAddress: Address;
-  clientAddress: Address;
-  items: InvoiceItem[];
-  total: number;
+  createdAt?: string;
+  paymentDue?: string;
+  description?: string;
+  paymentTerms?: number;
+  clientName?: string;
+  clientEmail?: string;
+  status: 'draft' | 'pending' | 'paid'; 
+  senderAddress?: Address;
+  clientAddress?: Address;
+  items?: InvoiceItem[]; // Optional for draft
+  total?: number; // Optional for draft
 }
 
 export interface Address {

@@ -17,4 +17,10 @@ export class InvoiceListComponent implements OnInit {
       this.invoices = invoices;
     });
   }
+
+  showOffCanvas: boolean = false;
+
+  toggleOffCanvas() {
+    this.showOffCanvas = !this.showOffCanvas;
+  }
 }

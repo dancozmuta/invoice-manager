@@ -32,8 +32,44 @@ export class InvoiceService {
     return this.invoices$;
   }
 
-  createInvoice(newInvoice: Invoice): void {
-    
+  private generateRandomId(): string {
+    const randomLetters = this.generateRandomLetters(2);
+    const randomNumbers = this.generateRandomNumbers(4);
+  
+    return `${randomLetters}${randomNumbers}`;
+  }
+  
+  private generateRandomLetters(length: number): string {
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * letters.length);
+      result += letters.charAt(randomIndex);
+    }
+    return result;
+  }
+  
+  private generateRandomNumbers(length: number): string {
+    let result = '';
+    for (let i = 0; i < length; i++) {
+      result += Math.floor(Math.random() * 10).toString();
+    }
+    return result;
+  }
+
+  createInvoice(newInvoice: Invoice, saveAsDraft: boolean = false): void {
+    if (saveAsDraft) {
+      // Set ID and status for drafts
+      newInvoice.id = this.generateRandomId();
+      newInvoice.status = 'draft';
+    } else {
+      // Set ID, status, and other properties for pending invoices
+      newInvoice.id = this.generateRandomId();
+      newInvoice.status = 'pending';
+      // Additional logic for paymentDue, total, etc.
+    }
+
+    // Update the list of invoices
     const currentInvoices = this.invoicesSubject.value;
     const updatedInvoices = [...currentInvoices, newInvoice];
     this.invoicesSubject.next(updatedInvoices);
