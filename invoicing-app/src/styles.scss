@@ -1,10 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
-@import './variables';
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+@import "./variables";
 
-body {
+body,
+html {
   font-family: "Jost", sans-serif;
   background-color: var(--background-dark);
   color: var(--text-color-dark);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+app-root {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 30px;
 }

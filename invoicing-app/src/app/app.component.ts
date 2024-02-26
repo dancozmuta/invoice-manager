@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'invoicing-app';
+
+  showOffCanvas: boolean = false;
+
+  toggleOffCanvas() {
+    this.showOffCanvas = !this.showOffCanvas;
+  }
 }

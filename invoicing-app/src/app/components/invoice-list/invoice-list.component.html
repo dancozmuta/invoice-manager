@@ -17,10 +17,10 @@
   </div>
 </div>
 <div class="invoice-list" *ngFor="let invoice of invoices">
-  <app-invoice
+  <app-invoice-preview
     [invoice]="invoice"
     class="invoice-list__item-content"
-  ></app-invoice>
+  ></app-invoice-preview>
 </div>
 <div class="off-canvas" [class.show]="showOffCanvas">
   <app-invoice-create></app-invoice-create>

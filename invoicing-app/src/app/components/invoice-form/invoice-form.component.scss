@@ -1,0 +1,63 @@
+form {
+    overflow-y: auto;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+  }
+  
+  .section h2 {
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: var(--primary-color);
+  }
+  
+  .form-row {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+  
+    &.multiple-fields {
+      justify-content: space-between;
+  
+      flex-direction: row;
+  
+      .form-row {
+        flex: 1;
+        margin-right: 5px;
+  
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  
+  h1 {
+    margin-bottom: 30px;
+  }
+  
+  .form-row label {
+    margin-bottom: 5px;
+    color: var(--text-color-dark);
+    font-size: 12px;
+    font-weight: 300;
+  }
+  
+  .form-row input[type="text"],
+  .form-row input[type="email"],
+  .form-row input[type="date"],
+  .form-row input[type="number"],
+  .form-row select {
+    padding: 15px;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    background-color: #1f213a;
+  }
+  
+  .form-footer {
+      position: absolute;
+      bottom: 0;
+  }
+  

@@ -48,22 +48,25 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-    display: none; /* Initially hidden */
+    display: none;
+    /* display: block; */
   }
 
   .off-canvas {
     z-index: 999;
     position: fixed;
     top: 0;
-    left: -100%;
-    width: 70%;
+    left: -550px;
+    /* left: 0; */
+    width: 500px; 
     height: 100%;
+    padding: 40px;
     background-color: var(--background-dark);
     transition: transform 0.3s ease-in-out;
   }
-
+  
   .off-canvas.show {
-    transform: translateX(100%);
+    transform: translateX(550px); /* Slide in to the right, showing the entire width */
   }
 
   .overlay.active {

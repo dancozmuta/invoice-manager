@@ -1,37 +1,33 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule, provideClientHydration } from "@angular/platform-browser";
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { InvoiceCreateComponent } from "./components/invoice-create/invoice-create.component";
+import { NgModule } from '@angular/core';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { InvoiceCreateComponent } from './components/invoice-create/invoice-create.component';
 import { InvoiceDetailsComponent } from './components/invoice-details/invoice-details.component';
-import { InvoiceItemComponent } from './components/invoice-item/invoice-item.component';
-import { InvoiceComponent } from './components/invoice/invoice.component';
-import { InvoiceListComponent } from "./components/invoice-list/invoice-list.component";
-import { ButtonComponent } from "./components/button/button.component";
-import { HttpClientModule } from "@angular/common/http";
+import { InvoiceFormComponent } from './components/invoice-form/invoice-form.component';
+import { InvoicePreviewComponent } from './components/invoice-preview/invoice-preview.component';
+import { InvoiceListComponent } from './components/invoice-list/invoice-list.component';
+import { ButtonComponent } from './components/button/button.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        InvoiceCreateComponent,
-        InvoiceDetailsComponent,
-        InvoiceListComponent,
-        InvoiceItemComponent,
-        InvoiceComponent,
-        ButtonComponent
-    ],
-    providers: [
-        provideClientHydration(),
-    ],
-    bootstrap: [AppComponent],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule 
-    ]
+  declarations: [
+    AppComponent,
+    InvoiceCreateComponent,
+    InvoiceDetailsComponent,
+    InvoiceListComponent,
+    InvoiceFormComponent,
+    InvoicePreviewComponent,
+    ButtonComponent,
+  ],
+  providers: [provideClientHydration()],
+  bootstrap: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
 })
-export class AppModule { }
+export class AppModule {}
 function provideHttpClient() {
-    throw new Error("Function not implemented.");
+  throw new Error('Function not implemented.');
 }
-
