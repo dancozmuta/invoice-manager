@@ -3,11 +3,11 @@ import { Invoice } from '../../models/invoice.interface';
 import { InvoiceService } from '../../services/invoice.service';
 
 @Component({
-  selector: 'app-invoice-create',
-  templateUrl: './invoice-create.component.html',
-  styleUrl: './invoice-create.component.scss'
+  selector: 'app-off-canvas',
+  templateUrl: './off-canvas.component.html',
+  styleUrl: './off-canvas.component.scss'
 })
-export class InvoiceCreateComponent {
+export class OffCanvasComponent {
   constructor(private invoiceService: InvoiceService) {}
 
   onSaveAsDraft(): void {

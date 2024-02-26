@@ -5,7 +5,7 @@ import {
 } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InvoiceCreateComponent } from './components/invoice-create/invoice-create.component';
+import { OffCanvasComponent } from './components/off-canvas/off-canvas.component';
 import { InvoiceDetailsComponent } from './components/invoice-details/invoice-details.component';
 import { InvoiceFormComponent } from './components/invoice-form/invoice-form.component';
 import { InvoicePreviewComponent } from './components/invoice-preview/invoice-preview.component';
@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    InvoiceCreateComponent,
+    OffCanvasComponent,
     InvoiceDetailsComponent,
     InvoiceListComponent,
     InvoiceFormComponent,
