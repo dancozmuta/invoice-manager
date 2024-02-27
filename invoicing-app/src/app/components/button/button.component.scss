@@ -30,6 +30,10 @@
       width: 100%;
       background-color: var(--background-dark--element);
       color: var(--text-color-dark);
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 
@@ -45,6 +49,10 @@
     border: none;
     min-height: 41px;
     cursor: pointer;
+    
+    &:hover {
+      opacity: 0.8;
+    }
 
     img {
       padding: 10px;

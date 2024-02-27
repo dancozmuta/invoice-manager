@@ -9,6 +9,10 @@
     padding: 10px 20px;
     border-radius: 10px;
 
+    &:hover {
+      background-color: var(--background-dark--element--hover);
+    }
+
     .invoice__client-details {
       flex: 1;
       display: flex;
