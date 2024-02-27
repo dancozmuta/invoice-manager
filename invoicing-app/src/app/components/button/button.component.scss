@@ -1,5 +1,5 @@
 :host {
-  &.button__new-invoice {
+  &.button--primary {
     button {
       background-color: var(--primary-color);
       color: var(--text-color-dark);
@@ -7,6 +7,29 @@
       &:hover {
         background-color: var(--primary-color-dark);
       }
+    }
+  }
+
+  &.button--icon {
+    button {
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 88px;
+
+      img {
+        background-color: transparent;
+        border-radius: 0;
+      }
+    }
+  }
+
+  &.button--default {
+    button {
+      width: 100%;
+      background-color: var(--background-dark--element);
+      color: var(--text-color-dark);
     }
   }
 
@@ -20,6 +43,7 @@
     font-size: 12px;
     font-weight: 600;
     border: none;
+    min-height: 41px;
     cursor: pointer;
 
     img {

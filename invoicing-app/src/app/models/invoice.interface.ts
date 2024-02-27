@@ -9,8 +9,8 @@ export interface Invoice {
   status: 'draft' | 'pending' | 'paid'; 
   senderAddress?: Address;
   clientAddress?: Address;
-  items?: InvoiceItem[]; // Optional for draft
-  total?: number; // Optional for draft
+  items?: InvoiceItem[]; 
+  total?: number;
 }
 
 export interface Address {

@@ -5,10 +5,11 @@ import { InvoiceService } from '../../services/invoice.service';
 @Component({
   selector: 'app-invoice-list',
   templateUrl: './invoice-list.component.html',
-  styleUrl: './invoice-list.component.scss'
+  styleUrls: ['./invoice-list.component.scss']
 })
 export class InvoiceListComponent implements OnInit {
   invoices: Invoice[] = [];
+  showOffCanvas: boolean = false;
 
   constructor(private invoiceService: InvoiceService) {}
 
@@ -16,11 +17,15 @@ export class InvoiceListComponent implements OnInit {
     this.invoiceService.getInvoices().subscribe((invoices) => {
       this.invoices = invoices;
     });
+
+    // Subscribe to showOffCanvas$ observable
+    this.invoiceService.showOffCanvas$.subscribe((show) => {
+      this.showOffCanvas = show;
+    });
   }
 
-  showOffCanvas: boolean = false;
-
   toggleOffCanvas() {
-    this.showOffCanvas = !this.showOffCanvas;
+    console.log('Toggle Off Canvas in Invoice List:', !this.showOffCanvas);
+    this.invoiceService.toggleOffCanvas(!this.showOffCanvas);
   }
 }

@@ -1,109 +1,110 @@
 <form class="invoice-form">
-    <section class="section">
-      <h2>Bill From</h2>
-      <div class="form-row">
-        <label for="bill-from-street">Street Address</label>
-        <input type="text" id="bill-from-street" />
-      </div>
-      <div class="form-row multiple-fields">
-        <div class="form-row">
-          <label for="bill-from-city">City</label>
-          <input type="text" id="bill-from-city" />
-        </div>
-        <div class="form-row">
-          <label for="bill-from-postcode">Postcode</label>
-          <input type="text" id="bill-from-postcode" />
-        </div>
-        <div class="form-row">
-          <label for="bill-from-country">Country</label>
-          <input type="text" id="bill-from-country" />
-        </div>
-      </div>
-    </section>
-  
-    <section class="section">
-      <h2>Bill To</h2>
-      <div class="form-row">
-        <label for="client-name">Client's Name</label>
-        <input type="text" id="client-name" />
-      </div>
-      <div class="form-row">
-        <label for="client-email">Client's Email</label>
-        <input type="email" id="client-email" />
-      </div>
-      <div class="form-row">
-        <label for="client-street">Street Address</label>
-        <input type="text" id="client-street" />
-      </div>
-      <div class="form-row multiple-fields">
-        <div class="form-row">
-          <label for="client-city">City</label>
-          <input type="text" id="client-city" />
-        </div>
-        <div class="form-row">
-          <label for="client-postcode">Postcode</label>
-          <input type="text" id="client-postcode" />
-        </div>
-        <div class="form-row">
-          <label for="client-country">Country</label>
-          <input type="text" id="client-country" />
-        </div>
-      </div>
-    </section>
-  
-    <section class="section">
-      <div class="form-row multiple-fields">
-        <div class="form-row">
-          <label for="issue-date">Issue Date</label>
-          <input type="date" id="issue-date" />
-        </div>
-        <div class="form-row">
-          <label for="payment-terms">Payment Terms</label>
-          <select id="payment-terms">
-            <option value="1">Net 1 Day</option>
-            <option value="7">Net 7 Days</option>
-            <option value="14">Net 14 Days</option>
-            <option value="30">Net 30 Days</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-row">
-        <label for="project-description">Project Description</label>
-        <input type="text" id="project-description" />
-      </div>
-    </section>
-  
-    <section class="section">
-      <h2>Item List</h2>
-      <ul class="item-list"> 
-        <li class="item-list__item">
-          <div class="form-row">
-            <label for="item-name">Item Name</label>
-            <input type="text" id="item-name" class="item-name">
-          </div>
-          <div class="form-row"> 
-            <label for="item-qty">Qty.</label>
-            <input type="number" id="item-qty" class="item-qty">
-          </div>
-          <div class="form-row"> 
-            <label for="item-price">Price</label>
-            <input type="number" id="item-price" class="item-price">
-          </div>
-          <div class="form-row">
-            <label for="item-total">Total</label>
-            <span class="item-total"></span> 
-          </div>
-          <button type="button" class="btn-delete-item">Delete</button>
-        </li>
-        </ul> 
-      <button type="button" id="add-new-item">Add New Item</button>
-    </section>
-    
-  
-    <div class="form-footer">
-      <button type="button" class="btn btn--discard">Discard</button>
-      <button type="button" class="btn btn--draft">Save as Draft</button>
-      <button type="button" class="btn btn--send">Save & Send</button>
+  <section class="section">
+    <h2>Bill From</h2>
+    <div class="form-row">
+      <label for="bill-from-street">Street Address</label>
+      <input type="text" id="bill-from-street" />
     </div>
-  </form>
-  
+    <div class="form-row multiple-fields">
+      <div class="form-row">
+        <label for="bill-from-city">City</label>
+        <input type="text" id="bill-from-city" />
+      </div>
+      <div class="form-row">
+        <label for="bill-from-postcode">Postcode</label>
+        <input type="text" id="bill-from-postcode" />
+      </div>
+      <div class="form-row">
+        <label for="bill-from-country">Country</label>
+        <input type="text" id="bill-from-country" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Bill To</h2>
+    <div class="form-row">
+      <label for="client-name">Client's Name</label>
+      <input type="text" id="client-name" />
+    </div>
+    <div class="form-row">
+      <label for="client-email">Client's Email</label>
+      <input type="email" id="client-email" />
+    </div>
+    <div class="form-row">
+      <label for="client-street">Street Address</label>
+      <input type="text" id="client-street" />
+    </div>
+    <div class="form-row multiple-fields">
+      <div class="form-row">
+        <label for="client-city">City</label>
+        <input type="text" id="client-city" />
+      </div>
+      <div class="form-row">
+        <label for="client-postcode">Postcode</label>
+        <input type="text" id="client-postcode" />
+      </div>
+      <div class="form-row">
+        <label for="client-country">Country</label>
+        <input type="text" id="client-country" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="form-row multiple-fields">
+      <div class="form-row">
+        <label for="issue-date">Issue Date</label>
+        <input type="date" id="issue-date" />
+      </div>
+      <div class="form-row">
+        <label for="payment-terms">Payment Terms</label>
+        <select id="payment-terms">
+          <option value="1">Net 1 Day</option>
+          <option value="7">Net 7 Days</option>
+          <option value="14">Net 14 Days</option>
+          <option value="30">Net 30 Days</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <label for="project-description">Project Description</label>
+      <input type="text" id="project-description" />
+    </div>
+  </section>
+
+  <section class="section section--last">
+    <h3>Item List</h3>
+    <div class="item-list--container">
+      <div class="form-row item-list item-list--name">
+        <label for="item-name">Item Name</label>
+        <input type="text" id="item-name" class="item-name" />
+      </div>
+      <div class="form-row item-list item-list--qty">
+        <label for="item-qty">Qty.</label>
+        <input type="number" id="item-qty" class="item-qty" />
+      </div>
+      <div class="form-row item-list item-list--price">
+        <label for="item-price">Price</label>
+        <input type="number" id="item-price" class="item-price" />
+      </div>
+      <div class="form-row item-list item-list--total">
+        <label for="item-total">Total</label>
+        <span class="item-total"></span>
+      </div>
+      <app-button
+        icon="./assets/icon-delete.svg"
+        class="button--icon"
+      ></app-button>
+    </div>
+    <app-button class="button--default" text="+ Add new item"></app-button>
+  </section>
+
+  <div class="form-footer">
+    <app-button class="button--secondary" text="Discard"></app-button>
+    <div class="form-footer__right">
+      <app-button class="button--default" text="Save as Draft"></app-button>
+      <app-button class="button--primary" text="Save & Send"></app-button>
+    </div>
+  </div>
+</form>

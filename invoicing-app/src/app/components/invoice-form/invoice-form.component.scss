@@ -1,63 +1,123 @@
 form {
-    overflow-y: auto;
+  height: 100%;
+  padding: 15px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 30px;
   }
-  
-  .section {
-    margin-bottom: 20px;
+
+  /* Set background color of the scrollbar thumb for the form */
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--input-fields-background-dark);
+    width: 12px;
+    height: 10px;
   }
-  
-  .section h2 {
+
+  /* Set background color of the scrollbar track for the form */
+  &::-webkit-scrollbar-track {
+    background-color: #141625;
+  }
+}
+
+.section {
+  margin-bottom: 20px;
+
+  &.section--last {
+    margin-bottom: 150px;
+  }
+
+  h2 {
     margin-bottom: 10px;
     font-size: 12px;
     color: var(--primary-color);
   }
-  
-  .form-row {
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-  
-    &.multiple-fields {
-      justify-content: space-between;
-  
-      flex-direction: row;
-  
-      .form-row {
-        flex: 1;
-        margin-right: 5px;
-  
-        &:last-child {
-          margin-right: 0;
-        }
+
+  h3 {
+    font-size: 14px;
+    color: var(--secondary-color-dark);
+  }
+}
+
+.form-row {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+
+  &.multiple-fields {
+    justify-content: space-between;
+
+    flex-direction: row;
+
+    .form-row {
+      flex: 1;
+      margin-right: 5px;
+
+      &:last-child {
+        margin-right: 0;
       }
     }
   }
-  
-  h1 {
-    margin-bottom: 30px;
+
+  &.item-list {
+    margin-right: 5px;
   }
-  
-  .form-row label {
-    margin-bottom: 5px;
-    color: var(--text-color-dark);
-    font-size: 12px;
-    font-weight: 300;
+}
+
+.form-row label {
+  margin-bottom: 5px;
+  color: var(--text-color-dark);
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row input[type="date"],
+.form-row input[type="number"],
+.form-row select {
+  padding: 15px;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  background-color: var(--input-fields-background-dark);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 425px;
+  padding: 20px 20px 20px 0;
+  margin-right: -90px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-dark);
+
+  .form-footer__right {
+    display: flex;
+    flex-direction: row;
   }
-  
-  .form-row input[type="text"],
-  .form-row input[type="email"],
-  .form-row input[type="date"],
-  .form-row input[type="number"],
-  .form-row select {
-    padding: 15px;
-    color: #fff;
-    border: 0;
-    border-radius: 5px;
-    background-color: #1f213a;
+}
+
+.item-list--container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  .item-list--name {
+    flex: 1;
   }
-  
-  .form-footer {
-      position: absolute;
-      bottom: 0;
+
+  .item-list--qty {
+    width: 20px;
   }
-  
+
+  .item-list--price,
+  .item-list--total {
+    width: 80px;
+  }
+}

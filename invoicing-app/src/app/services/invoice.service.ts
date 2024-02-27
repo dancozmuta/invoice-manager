@@ -66,7 +66,6 @@ export class InvoiceService {
       // Set ID, status, and other properties for pending invoices
       newInvoice.id = this.generateRandomId();
       newInvoice.status = 'pending';
-      // Additional logic for paymentDue, total, etc.
     }
 
     // Update the list of invoices
@@ -89,5 +88,13 @@ export class InvoiceService {
     const currentInvoices = this.invoicesSubject.value;
     const updatedInvoices = currentInvoices.filter((invoice) => invoice.id !== invoiceId);
     this.invoicesSubject.next(updatedInvoices);
+  }
+
+  private showOffCanvasSubject = new BehaviorSubject<boolean>(false);
+  showOffCanvas$ = this.showOffCanvasSubject.asObservable();
+
+  toggleOffCanvas(show: boolean): void {
+    console.log('toggle off canvas in service. Current value:', show);
+    this.showOffCanvasSubject.next(show);
   }
 }

@@ -1,2 +1,9 @@
-<h1>New Invoice</h1>
-<app-invoice-form></app-invoice-form>
+<div class="off-canvas" [class.show]="showOffCanvas$ | async">
+  <h1>New Invoice</h1>
+  <app-invoice-form></app-invoice-form>
+</div>
+<div
+  class="overlay"
+  [class.active]="showOffCanvas$ | async"
+  (click)="toggleOffCanvas()"
+></div>
