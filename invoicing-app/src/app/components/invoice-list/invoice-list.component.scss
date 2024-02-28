@@ -1,8 +1,9 @@
 :host {
   width: 100%;
   max-width: 700px;
+  margin-top: 30px;
 
-  .invoice-list__header {
+  .invoice-preview__header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Invoice } from '../../models/invoice.interface';
 import { InvoiceService } from '../../services/invoice.service';
 
@@ -8,11 +8,21 @@ import { InvoiceService } from '../../services/invoice.service';
   templateUrl: './invoice-form.component.html',
   styleUrls: ['./invoice-form.component.scss']
 })
-export class InvoiceFormComponent {
+export class InvoiceFormComponent implements OnInit {
+  selectedInvoice: Invoice | null = null;
+  @Input() invoice!: Invoice;
+
   constructor(private invoiceService: InvoiceService) {}
 
+  ngOnInit(): void {
+    this.invoiceService.selectedInvoice$.subscribe((selectedInvoice) => {
+      this.selectedInvoice = selectedInvoice;
+    });
+  }
+
   saveAsDraft(event: Event): void {
-    event.preventDefault(); // Prevent the default form submission behavior
+    // Prevent the default form submission
+    event.preventDefault(); 
     const newInvoice: Invoice = {
       id: '',
       createdAt: '',
@@ -21,7 +31,7 @@ export class InvoiceFormComponent {
       paymentTerms: 0,
       clientName: '',
       clientEmail: '',
-      status: 'draft', // Set the status to 'draft'
+      status: 'draft', 
       senderAddress: undefined,
       clientAddress: undefined,
       items: [],
@@ -33,5 +43,9 @@ export class InvoiceFormComponent {
 
     // Close the off-canvas
     this.invoiceService.toggleOffCanvas(false);
+  }
+
+  onInvoiceClick(): void {
+    this.invoiceService.setSelectedInvoice(this.invoice);
   }
 }

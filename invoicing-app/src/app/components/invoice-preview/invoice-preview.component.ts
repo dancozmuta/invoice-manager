@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Invoice } from '../../models/invoice.interface';
 
 @Component({
@@ -8,4 +8,11 @@ import { Invoice } from '../../models/invoice.interface';
 })
 export class InvoicePreviewComponent {
   @Input() invoice!: Invoice; 
+
+  // Emitting the invoice ID
+  @Output() openInvoice = new EventEmitter<string>(); 
+  
+  onInvoiceClick(): void {
+    this.openInvoice.emit(this.invoice.id);
+  }
 }

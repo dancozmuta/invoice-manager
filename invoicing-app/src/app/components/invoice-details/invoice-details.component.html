@@ -1,1 +1,11 @@
-<p>invoice-details works!</p>
+<app-button
+  icon="./assets/icon-arrow-left.svg"
+  class="button--link--text-icon"
+  text="Go back"
+  (click)="onBackClick()"
+></app-button>
+<div class="details--header" *ngIf="selectedInvoice">
+  <div class="invoice__status {{ selectedInvoice.status }}">
+    <span>Status {{ selectedInvoice.status }}</span>
+  </div>
+</div>

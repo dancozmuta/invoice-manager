@@ -1,4 +1,4 @@
-<div class="invoice">
+<div class="invoice" (click)="onInvoiceClick()">
   <p class="invoice__id">{{ invoice.id }}</p>
   <p class="invoice__due-date">Due {{ invoice.paymentDue }}</p>
   <div class="invoice__client-details">

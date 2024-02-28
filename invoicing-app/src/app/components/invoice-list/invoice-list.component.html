@@ -1,4 +1,4 @@
-<div class="invoice-list__header">
+<div class="invoice-preview__header">
   <div class="title">
     <h1 class="title__main">Invoices</h1>
     <p class="title__info">There are {{ invoices.length }} total invoices.</p>
@@ -16,9 +16,10 @@
     ></app-button>
   </div>
 </div>
-<div class="invoice-list" *ngFor="let invoice of invoices">
+<div class="invoice-preview-container" *ngFor="let invoice of invoices">
   <app-invoice-preview
     [invoice]="invoice"
-    class="invoice-list__item-content"
+    class="invoice-preview__item-content"
+    (openInvoice)="handleOpenInvoice($event)"
   ></app-invoice-preview>
 </div>
