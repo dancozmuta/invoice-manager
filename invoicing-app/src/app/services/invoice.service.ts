@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Invoice } from '../models/invoice.interface';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -57,7 +57,7 @@ export class InvoiceService {
     return result;
   }
 
-  createInvoice(newInvoice: Invoice, saveAsDraft: boolean = false): void {
+  createInvoice(newInvoice: Invoice, saveAsDraft: boolean = false): Invoice {
     if (saveAsDraft) {
       // Set ID and status for drafts
       newInvoice.id = this.generateRandomId();
@@ -67,11 +67,13 @@ export class InvoiceService {
       newInvoice.id = this.generateRandomId();
       newInvoice.status = 'pending';
     }
-
+  
     // Update the list of invoices
     const currentInvoices = this.invoicesSubject.value;
     const updatedInvoices = [...currentInvoices, newInvoice];
     this.invoicesSubject.next(updatedInvoices);
+  
+    return newInvoice; 
   }
 
   updateInvoice(updatedInvoice: Invoice): void {
