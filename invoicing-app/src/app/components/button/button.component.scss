@@ -28,7 +28,7 @@
   &.button--default {
     button {
       width: 100%;
-      background-color: var(--background-dark--element);
+      background-color: var(--secondary-color-dark);
       color: var(--text-color-dark);
 
       &:hover {
@@ -53,6 +53,17 @@
 
       span {
         margin: 0 10px 0 5px;
+      }
+    }
+  }
+
+  &.button--warning {
+    button {
+      background-color: var(--warning-color-dark);
+      color: var(--text-color-dark);
+
+      &:hover {
+        opacity: 0.8;
       }
     }
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InvoiceService } from '../../services/invoice.service';
 import { Invoice } from '../../models/invoice.interface';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-invoice-details',
@@ -10,6 +11,7 @@ import { Invoice } from '../../models/invoice.interface';
 })
 export class InvoiceDetailsComponent implements OnInit {
   selectedInvoice: Invoice | null = null;
+  private unsubscribe$: Subject<void> = new Subject<void>();
 
   constructor(private router: Router, private invoiceService: InvoiceService) {
     this.invoiceService.selectedInvoice$.subscribe((invoice) => {
@@ -18,10 +20,14 @@ export class InvoiceDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.invoiceService.selectedInvoice$.subscribe((invoice) => {
+      this.selectedInvoice = invoice;
+    });
+
     this.invoiceService.currentInvoiceId$.subscribe((invoiceId) => {
-      console.log('Invoice ID:', invoiceId); // Log the invoiceId
+      console.log('Invoice ID:', invoiceId);
       if (invoiceId) {
-        this.invoiceService.getInvoiceDetails().subscribe(
+        this.invoiceService.getInvoiceDetails(invoiceId).subscribe(
           (details) => {
             this.selectedInvoice = details || null;
             console.log('Selected Invoice:', this.selectedInvoice);
@@ -42,5 +48,31 @@ export class InvoiceDetailsComponent implements OnInit {
   onBackClick(): void {
     this.invoiceService.setSelectedInvoice(null);
     this.router.navigate(['/']);
+  }
+
+  onEditClick(): void {
+    
+    console.log('Edit button clicked');
+  }
+
+  onDeleteClick(): void {
+    
+    if (this.selectedInvoice) {
+      // Delete the current invoice
+      this.invoiceService.deleteInvoice(this.selectedInvoice.id);
+
+      // Navigate to the invoice list
+      this.router.navigate(['/invoices']);
+    }
+  }
+
+  onMarkAsPaidClick(): void {
+    
+    console.log('Mark as paid button clicked');
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

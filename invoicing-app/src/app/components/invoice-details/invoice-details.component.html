@@ -5,7 +5,30 @@
   (click)="onBackClick()"
 ></app-button>
 <div class="details--header" *ngIf="selectedInvoice">
-  <div class="invoice__status {{ selectedInvoice.status }}">
-    <span>Status {{ selectedInvoice.status }}</span>
+  <div class="details--header__left">
+    <p>Status</p>
+    <div class="invoice__status {{ selectedInvoice.status }}">
+      <div class="invoice__status__dot"></div>
+      <span>{{ selectedInvoice.status }}</span>
+    </div>
+  </div>
+  <div class="details--header__right">
+    <div class="details--header__right">
+      <app-button
+        class="button--default"
+        text="Edit"
+        (click)="onEditClick()"
+      ></app-button>
+      <app-button
+        class="button--warning"
+        text="Delete"
+        (click)="onDeleteClick()"
+      ></app-button>
+      <app-button
+        class="button--primary"
+        text="Mark as paid"
+        (click)="onMarkAsPaidClick()"
+      ></app-button>
+    </div>
   </div>
 </div>

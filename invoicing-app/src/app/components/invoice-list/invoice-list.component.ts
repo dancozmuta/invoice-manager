@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-invoice-list',
   templateUrl: './invoice-list.component.html',
-  styleUrls: ['./invoice-list.component.scss']
+  styleUrls: ['./invoice-list.component.scss'],
 })
 export class InvoiceListComponent implements OnInit {
   invoices: Invoice[] = [];
@@ -33,6 +33,11 @@ export class InvoiceListComponent implements OnInit {
   handleOpenInvoice(invoiceId: string): void {
     // Handle the logic to open the invoice with the given ID
     console.log('Open invoice with ID:', invoiceId);
+  
+    // Set the currentInvoiceId in the service
+    this.invoiceService.setCurrentInvoiceId(invoiceId);
+  
+    // Navigate to the details page
     this.router.navigate(['/invoice', invoiceId]);
   }
 }

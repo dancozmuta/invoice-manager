@@ -20,6 +20,10 @@ export class InvoiceService {
   currentInvoiceId$: Observable<string | null> =
     this.currentInvoiceIdSubject.asObservable();
 
+    setCurrentInvoiceId(invoiceId: string | null): void {
+      this.currentInvoiceIdSubject.next(invoiceId);
+    }
+
   constructor(private http: HttpClient) {
     this.loadInvoices();
   }
@@ -40,18 +44,13 @@ export class InvoiceService {
     return this.invoices$;
   }
 
-  getInvoiceDetails(): Observable<Invoice | undefined> {
-    console.log()
-    return this.currentInvoiceId$.pipe(
-      switchMap((invoiceId) => {
-        console.log('Inside getInvoiceDetails:', invoiceId); 
-        return invoiceId
-          ? this.invoices$.pipe(
-              map((invoices) => invoices.find((invoice) => invoice.id === invoiceId))
-            )
-          : of(undefined);
-      })
-    );
+  getInvoiceDetails(invoiceId: string): Observable<Invoice | undefined> {
+    console.log('Inside getInvoiceDetails:', invoiceId);
+    return invoiceId
+      ? this.invoices$.pipe(
+          map((invoices) => invoices.find((invoice) => invoice.id === invoiceId))
+        )
+      : of(undefined);
   }
   
 
