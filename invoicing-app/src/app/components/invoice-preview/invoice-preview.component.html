@@ -6,7 +6,7 @@
       {{ invoice.clientName }}
     </p>
     <p class="invoice__client-details__item invoice__total">
-      £ {{ invoice.total }}
+     {{ invoice.total | currency }}
     </p>
   </div>
   <div class="invoice__status {{ invoice.status }}">

@@ -4,6 +4,7 @@
 body,
 html {
   font-family: "Jost", sans-serif;
+  font-weight: 300;
   background-color: var(--background-dark);
   color: var(--text-color-dark);
   margin: 0;
@@ -21,4 +22,8 @@ app-root {
 h1 {
   font-size: 30px;
   margin-bottom: 30px;
+}
+
+.highlight {
+  font-weight: 500;
 }

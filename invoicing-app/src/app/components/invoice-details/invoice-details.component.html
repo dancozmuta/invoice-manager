@@ -4,31 +4,100 @@
   text="Go back"
   (click)="onBackClick()"
 ></app-button>
-<div class="details--header" *ngIf="selectedInvoice">
-  <div class="details--header__left">
-    <p>Status</p>
-    <div class="invoice__status {{ selectedInvoice.status }}">
-      <div class="invoice__status__dot"></div>
-      <span>{{ selectedInvoice.status }}</span>
+<div class="details" *ngIf="selectedInvoice">
+  <div class="details--header">
+    <!-- Header section -->
+    <div class="details--header__left">
+      <p class="highlight">Status</p>
+      <div class="invoice__status {{ selectedInvoice.status }}">
+        <div class="invoice__status__dot"></div>
+        <span>{{ selectedInvoice.status }}</span>
+      </div>
     </div>
-  </div>
-  <div class="details--header__right">
     <div class="details--header__right">
-      <app-button
-        class="button--default"
-        text="Edit"
-        (click)="onEditClick()"
-      ></app-button>
-      <app-button
-        class="button--warning"
-        text="Delete"
-        (click)="onDeleteClick()"
-      ></app-button>
-      <app-button
-        class="button--primary"
-        text="Mark as paid"
-        (click)="onMarkAsPaidClick()"
-      ></app-button>
+      <div class="details--header__right">
+        <app-button
+          class="button--default"
+          text="Edit"
+          (click)="onEditClick()"
+        ></app-button>
+        <app-button
+          class="button--warning"
+          text="Delete"
+          (click)="onDeleteClick()"
+        ></app-button>
+        <app-button
+          class="button--primary"
+          text="Mark as paid"
+          (click)="onMarkAsPaidClick()"
+        ></app-button>
+      </div>
     </div>
   </div>
+  <!-- Content section -->
+  <div class="details--content">
+    <!-- First row with 2 columns -->
+    <div class="details--content__top">
+      <div class="column">
+        <p class="highlight">{{ selectedInvoice.id }}</p>
+        <p>{{ selectedInvoice.description }}</p>
+      </div>
+      <div class="column align-right">
+        <p>{{ selectedInvoice.senderAddress?.street }}</p>
+        <p>{{ selectedInvoice.senderAddress?.city }}</p>
+        <p>{{ selectedInvoice.senderAddress?.postCode }}</p>
+        <p>{{ selectedInvoice.senderAddress?.country }}</p>
+      </div>
+    </div>
+
+    <!-- Second row with 3 columns -->
+    <div class="details--content__middle">
+      <div class="column details--content__middle--dates">
+        <p>Invoice Date</p>
+        <p class="highlight">{{ selectedInvoice.createdAt }}</p>
+        <p>Payment Due</p>
+        <p class="highlight">{{ selectedInvoice.paymentDue }}</p>
+      </div>
+      <div class="details--content__middle--contact">
+        <div class="column">
+          <p>Bill To</p>
+          <p class="highlight">{{ selectedInvoice.clientName }}</p>
+          <p>{{ selectedInvoice.senderAddress?.street }}</p>
+          <p>{{ selectedInvoice.senderAddress?.city }}</p>
+          <p>{{ selectedInvoice.senderAddress?.postCode }}</p>
+          <p>{{ selectedInvoice.senderAddress?.country }}</p>
+        </div>
+        <div class="column">
+          <p>Sent To</p>
+          <p class="highlight">{{ selectedInvoice.clientEmail }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="details--content__bottom">
+      <table>
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>QTY.</th>
+            <th>Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of selectedInvoice.items">
+            <td>{{ item.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price | currency }}</td>
+            <td>{{ item.total | currency }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="details--content__bottom__total">
+        <p>Amount Due</p>
+        <span>{{ selectedInvoice.total | currency }}</span>
+      </div>
+    </div>
+  </div>
+  
 </div>
