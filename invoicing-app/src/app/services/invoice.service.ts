@@ -79,11 +79,19 @@ export class InvoiceService {
     return result;
   }
 
+  updateInvoiceStatus(invoiceId: string, newStatus: 'draft' | 'pending' | 'paid'): void {
+    const currentInvoices = this.invoicesSubject.value;
+    const updatedInvoices = currentInvoices.map((invoice) =>
+      invoice.id === invoiceId ? { ...invoice, status: newStatus } : invoice
+    );
+    this.invoicesSubject.next(updatedInvoices);
+  }
+
   createInvoice(newInvoice: Invoice, saveAsDraft: boolean = false): Invoice {
     if (saveAsDraft) {
       // Set ID and status for drafts
       newInvoice.id = this.generateRandomId();
-      newInvoice.status = 'draft';
+    newInvoice.status = 'draft';
     } else {
       // Set ID, status, and other properties for pending invoices
       newInvoice.id = this.generateRandomId();
@@ -91,14 +99,14 @@ export class InvoiceService {
     }
 
     // Update the list of invoices
-    const currentInvoices = this.invoicesSubject.value;
-    const updatedInvoices = [...currentInvoices, newInvoice];
-    this.invoicesSubject.next(updatedInvoices);
+  const currentInvoices = this.invoicesSubject.value;
+  const updatedInvoices = [...currentInvoices, newInvoice];
+  this.invoicesSubject.next(updatedInvoices);
 
-    // Select the newly created invoice
-    this.setSelectedInvoice(newInvoice);
+  // Select the newly created invoice
+  this.setSelectedInvoice(newInvoice);
 
-    return newInvoice;
+  return newInvoice;
   }
 
   updateInvoice(updatedInvoice: Invoice): void {

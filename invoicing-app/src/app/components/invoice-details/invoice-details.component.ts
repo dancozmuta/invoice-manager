@@ -67,8 +67,13 @@ export class InvoiceDetailsComponent implements OnInit {
   }
 
   onMarkAsPaidClick(): void {
-    
-    console.log('Mark as paid button clicked');
+    if (this.selectedInvoice) {
+      // Update the status to "paid"
+      this.invoiceService.updateInvoiceStatus(this.selectedInvoice.id, 'paid');
+
+      // Navigate to the invoice list
+      this.router.navigate(['/invoices']);
+    }
   }
 
   ngOnDestroy(): void {
