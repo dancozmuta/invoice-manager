@@ -1,7 +1,3 @@
-### Objective
-
-Your challenge is to build out this invoicing application for NHD's accounting department and get it looking as close to the design as possible.
-
 ### Brief
 
 Using TypeScript and Angular, your task is to build out the project to the design files provided in the `/designs` folder. The functionality outlined in **Expected Behaviour** is more important than implementing the designs pixel-perfect. You are only supposed to build out the desktop version of the assignment and it does not need to be responsive.
@@ -34,23 +30,5 @@ Your users should be able to:
   - When saving changes to an invoice, all fields are required when the "Save Changes" button is clicked. If the user clicks "Cancel", any unsaved changes should be reset.
   - If the invoice being edited is a "draft", the status needs to be updated to "pending" when the "Save Changes" button is clicked. All fields are required at this stage.
 - Users should be able to mark invoices as paid by clicking the "Mark as Paid" button. This should change the invoice's status to "paid".
-- **Bonus**: Users should receive a confirmation modal when trying to delete invoices.
+- Users should receive a confirmation modal when trying to delete invoices.
 - Feel free not to add custom styling for the date and dropdown form fields. The designs for those fields are optional extras and are mostly for illustration purposes.
-
-### Evaluation Criteria
-
-- **TypeScript** best practices
-- Show us your work through your commit history
-- We're looking for you to produce working code with enough room to demonstrate how to structure components in a small program
-- Completeness: did you complete the features?
-- Correctness: does the functionality act in sensible, thought-out ways?
-- Maintainability: is it written in a clean, maintainable way?
-- Testing: is the system adequately tested?
-
-### CodeSubmit
-
-Please organize, design, test, and document your code as if it were going into production - then push your changes to the master branch. After you have pushed your code, you may submit the assignment on the assignment page.
-
-**Have fun building!** 🚀
-
-The NHD Team
