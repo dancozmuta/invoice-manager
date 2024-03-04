@@ -12,6 +12,7 @@ import { InvoicePreviewComponent } from './components/invoice-preview/invoice-pr
 import { InvoiceListComponent } from './components/invoice-list/invoice-list.component';
 import { ButtonComponent } from './components/button/button.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InputFieldComponent } from './components/input-field/input-field.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     InvoiceFormComponent,
     InvoicePreviewComponent,
     ButtonComponent,
+    InputFieldComponent,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],

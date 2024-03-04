@@ -1,6 +1,4 @@
 <button [class]="buttonClass">
-  <ng-container *ngIf="icon">
-    <img class="button--icon" [src]="icon" alt="Icon" />
-  </ng-container>
-  <span *ngIf="text">{{ text }}</span>
+  <img class="button--icon" *ngIf="icon" [src]="icon" alt="Icon" />
+   <span *ngIf="text">{{ text }}</span>
 </button>

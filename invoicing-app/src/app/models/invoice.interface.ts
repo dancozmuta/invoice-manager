@@ -19,7 +19,6 @@ export interface Address {
   postCode: string;
   country: string;
 }
-
 export interface InvoiceItem {
   name: string;
   quantity: number;

@@ -9,20 +9,33 @@ import { HttpClient } from '@angular/common/http';
 export class InvoiceService {
   private URL = 'assets/data.json';
 
-  private invoicesSubject: BehaviorSubject<Invoice[]> = new BehaviorSubject<Invoice[]>([]);
+  private selectedInvoiceForEditSubject: BehaviorSubject<Invoice | null> =
+    new BehaviorSubject<Invoice | null>(null);
+  selectedInvoiceForEdit$: Observable<Invoice | null> =
+    this.selectedInvoiceForEditSubject.asObservable();
+
+  setSelectedInvoiceForEdit(invoice: Invoice | null): void {
+    this.selectedInvoiceForEditSubject.next(invoice);
+  }
+
+  private invoicesSubject: BehaviorSubject<Invoice[]> = new BehaviorSubject<
+    Invoice[]
+  >([]);
   invoices$: Observable<Invoice[]> = this.invoicesSubject.asObservable();
 
-  private selectedInvoiceSubject: BehaviorSubject<Invoice | null> = new BehaviorSubject<Invoice | null>(null);
-  selectedInvoice$: Observable<Invoice | null> = this.selectedInvoiceSubject.asObservable();
+  private selectedInvoiceSubject: BehaviorSubject<Invoice | null> =
+    new BehaviorSubject<Invoice | null>(null);
+  selectedInvoice$: Observable<Invoice | null> =
+    this.selectedInvoiceSubject.asObservable();
 
   private currentInvoiceIdSubject: BehaviorSubject<string | null> =
     new BehaviorSubject<string | null>(null);
   currentInvoiceId$: Observable<string | null> =
     this.currentInvoiceIdSubject.asObservable();
 
-    setCurrentInvoiceId(invoiceId: string | null): void {
-      this.currentInvoiceIdSubject.next(invoiceId);
-    }
+  setCurrentInvoiceId(invoiceId: string | null): void {
+    this.currentInvoiceIdSubject.next(invoiceId);
+  }
 
   constructor(private http: HttpClient) {
     this.loadInvoices();
@@ -48,11 +61,12 @@ export class InvoiceService {
     console.log('Inside getInvoiceDetails:', invoiceId);
     return invoiceId
       ? this.invoices$.pipe(
-          map((invoices) => invoices.find((invoice) => invoice.id === invoiceId))
+          map((invoices) =>
+            invoices.find((invoice) => invoice.id === invoiceId)
+          )
         )
       : of(undefined);
   }
-  
 
   private generateRandomId(): string {
     const randomLetters = this.generateRandomLetters(2);
@@ -79,7 +93,10 @@ export class InvoiceService {
     return result;
   }
 
-  updateInvoiceStatus(invoiceId: string, newStatus: 'draft' | 'pending' | 'paid'): void {
+  updateInvoiceStatus(
+    invoiceId: string,
+    newStatus: 'draft' | 'pending' | 'paid'
+  ): void {
     const currentInvoices = this.invoicesSubject.value;
     const updatedInvoices = currentInvoices.map((invoice) =>
       invoice.id === invoiceId ? { ...invoice, status: newStatus } : invoice
@@ -91,7 +108,7 @@ export class InvoiceService {
     if (saveAsDraft) {
       // Set ID and status for drafts
       newInvoice.id = this.generateRandomId();
-    newInvoice.status = 'draft';
+      newInvoice.status = 'draft';
     } else {
       // Set ID, status, and other properties for pending invoices
       newInvoice.id = this.generateRandomId();
@@ -99,14 +116,14 @@ export class InvoiceService {
     }
 
     // Update the list of invoices
-  const currentInvoices = this.invoicesSubject.value;
-  const updatedInvoices = [...currentInvoices, newInvoice];
-  this.invoicesSubject.next(updatedInvoices);
+    const currentInvoices = this.invoicesSubject.value;
+    const updatedInvoices = [...currentInvoices, newInvoice];
+    this.invoicesSubject.next(updatedInvoices);
 
-  // Select the newly created invoice
-  this.setSelectedInvoice(newInvoice);
+    // Select the newly created invoice
+    this.setSelectedInvoice(newInvoice);
 
-  return newInvoice;
+    return newInvoice;
   }
 
   updateInvoice(updatedInvoice: Invoice): void {
